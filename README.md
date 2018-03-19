@@ -1,3 +1,15 @@
+## REA UI Dev Test
+
+## Install
+
+1. Run `yarn` or `yarn install`
+
+## Run
+
+1. Run `yarn start`
+2. See local project at localhost:3000 (assuming port is free upon startup)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
