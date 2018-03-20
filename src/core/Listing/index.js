@@ -15,6 +15,7 @@ class Listing extends React.PureComponent {
                 <div className='listing__image' style={listingImage} />
                 <img className='listing__logo' src='http://i1.au.reastatic.net/agencylogo/XRWXMT/12/20120927204448.gif' />
                 <p className='listing__price'>$999,999</p>
+                <button className="listing__primary-cta">Add</button>
             </div>
         );
     }
