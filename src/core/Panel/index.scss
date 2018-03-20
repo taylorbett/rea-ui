@@ -1,0 +1,10 @@
+.panel {
+    padding: 0 30px 20px 30px;
+    text-align: left;
+
+    &__title {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
