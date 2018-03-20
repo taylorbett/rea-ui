@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import Listing from './core/Listing';
 
 class App extends Component {
   render() {
@@ -9,6 +10,11 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">REA UI Dev Test</h1>
         </header>
+        <div className="main">
+          <Listing />
+          <Listing />
+          <Listing />
+        </div>
       </div>
     );
   }
