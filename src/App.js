@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Panel from './core/Panel';
-import Listing from './core/Listing';
+import Results from './modules/Results';
+import SavedProperties from './modules/SavedProperties';
 
 class App extends Component {
   render() {
@@ -14,16 +14,10 @@ class App extends Component {
         <div className="main">
           <div className="columns">
             <div className="column">
-              <Panel title={"Results"}>
-                <Listing />
-                <Listing />
-                <Listing />
-              </Panel>
+              <Results />
             </div>
             <div className="column">
-              <Panel title={"Saved Properties"}>
-                <Listing />
-              </Panel>
+              <SavedProperties />
             </div>
           </div>
         </div>
