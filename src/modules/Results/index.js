@@ -19,6 +19,11 @@ class Results extends React.Component {
     }
     
     renderListings() {
+        if (!this.props.results.length) {
+            return(
+                <p>Oops! You're all out of listings!</p>
+            );
+        }
         return this.props.results.map((result, n) => {
             return(
                 <Listing

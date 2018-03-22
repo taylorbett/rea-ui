@@ -19,6 +19,11 @@ class SavedProperties extends React.Component {
     }
     
     renderListings() {
+        if (!this.props.saved.length) {
+            return(
+                <p>You have no saved properties.</p>
+            );
+        }
         return this.props.saved.map((result, n) => {
             return(
                 <Listing
