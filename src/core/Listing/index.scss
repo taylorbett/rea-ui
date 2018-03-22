@@ -62,5 +62,13 @@
         height: 40px;
         line-height: 40px;
         padding: 0 12px;
+
+        &:hover {
+            background: darken(#3ecf8e, 6%);
+        }
+
+        &:active {
+            background: darken(#3ecf8e, 10%);
+        }
     }
 }
