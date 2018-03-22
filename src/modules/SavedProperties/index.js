@@ -1,12 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { REMOVE_SAVED_PROPERTY } from '../../constants';
+
 import Panel from '../../core/Panel';
 import Listing from '../../core/Listing';
 
 class SavedProperties extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.removeSavedProperty = this.removeSavedProperty.bind(this);
+    }
+    
     removeSavedProperty(propertyId) {
         console.log(`Removing property id: ${propertyId} from Saved Properties`);
+        this.props.removeSavedProperty(propertyId);
     }
     
     renderListings() {
@@ -33,8 +42,14 @@ class SavedProperties extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        saved: state.searchReducer.saved,
+        saved: state.search.saved,
     };
 }
 
-export default connect(mapStateToProps)(SavedProperties);
+function mapDispatchToProps(dispatch) {
+    return { 
+        removeSavedProperty: (propertyId) => dispatch({type: REMOVE_SAVED_PROPERTY, propertyId}),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SavedProperties);

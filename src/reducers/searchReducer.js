@@ -1,3 +1,5 @@
+import * as constants from '../constants';
+
 const initialState = {
     "results": [{
         "price": "$726,500",
@@ -45,10 +47,16 @@ const initialState = {
 
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_SAVED_PROPERTY':
-            return state;
-        case 'REMOVE_SAVED_PROPERTY':
-            return state;
+        case constants.ADD_SAVED_PROPERTY:
+            return Object.assign({}, state, {
+                results: state.results.filter(property => property.id !== action.propertyId),
+                saved: [...state.saved, ...state.results.filter(property => property.id === action.propertyId)],
+            });
+        case constants.REMOVE_SAVED_PROPERTY:
+            return Object.assign({}, state, {
+                results: [...state.results, ...state.saved.filter(property => property.id === action.propertyId)],
+                saved: state.saved.filter(property => property.id !== action.propertyId),
+            });
         default:
             return state;
     }
