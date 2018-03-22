@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Panel from '../../core/Panel';
 import Listing from '../../core/Listing';
@@ -9,7 +10,7 @@ class SavedProperties extends React.Component {
     }
     
     renderListings() {
-        return this.props.savedProperties.map((result, n) => {
+        return this.props.saved.map((result, n) => {
             return(
                 <Listing
                     key={n}
@@ -30,4 +31,10 @@ class SavedProperties extends React.Component {
     }
 }
 
-export default SavedProperties;
+function mapStateToProps(state) {
+    return {
+        saved: state.searchReducer.saved,
+    };
+}
+
+export default connect(mapStateToProps)(SavedProperties);

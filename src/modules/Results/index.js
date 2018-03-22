@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Panel from '../../core/Panel';
 import Listing from '../../core/Listing';
@@ -9,6 +10,7 @@ class Results extends React.Component {
     }
     
     renderListings() {
+        console.log(this.props);
         return this.props.results.map((result, n) => {
             return(
                 <Listing
@@ -30,4 +32,10 @@ class Results extends React.Component {
     }
 }
 
-export default Results;
+function mapStateToProps(state) {
+    return {
+        results: state.searchReducer.results,
+    };
+}
+
+export default connect(mapStateToProps)(Results);
