@@ -7,6 +7,11 @@ import { ADD_SAVED_PROPERTY } from '../../constants';
 import Panel from '../../core/Panel';
 import Listing from '../../core/Listing';
 
+/**
+ * Container for displaying property results after a filter or search.
+ * 
+ * Renders an array of [Listing](/#listing) components with a CTAs to add to Saved Properties, at which point the listing will be removed from Results.
+*/
 class Results extends React.Component {
     constructor(props) {
         super(props);
@@ -63,6 +68,7 @@ Results.defaultProps = {
 };
 
 Results.propTypes = {
+    /** An array of objects each containing the required data for a listing */
     results: PropTypes.arrayOf(
         PropTypes.shape({
             price: PropTypes.string,

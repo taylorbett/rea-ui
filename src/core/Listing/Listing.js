@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Listing.css';
 
 /**
- * Listing component for showing a small snapshot of a property listing.
+ * Component for showing a small snapshot of a property listing.
  * 
  * Can have interaction through CTAs or presumably become a link through to a property page.
 */

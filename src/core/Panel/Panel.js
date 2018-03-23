@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Panel.css';
 
 /**
- * Panel component for standard container format.
+ * Component for standard layout container format.
 */
 class Panel extends React.PureComponent {
     render() {

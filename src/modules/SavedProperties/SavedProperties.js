@@ -7,6 +7,11 @@ import { REMOVE_SAVED_PROPERTY } from '../../constants';
 import Panel from '../../core/Panel';
 import Listing from '../../core/Listing';
 
+/**
+ * Container for displaying a user's saved properties.
+ * 
+ * Renders an array of [Listing](/#listing) components with a CTAs to remove from Saved Properties, at which point the listing will return to Results.
+*/
 class SavedProperties extends React.Component {
     constructor(props) {
         super(props);
@@ -63,6 +68,7 @@ SavedProperties.defaultProps = {
 };
 
 SavedProperties.propTypes = {
+    /** An array of objects each containing the required data for a listing */
     saved: PropTypes.arrayOf(
         PropTypes.shape({
             price: PropTypes.string,

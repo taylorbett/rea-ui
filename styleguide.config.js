@@ -1,5 +1,14 @@
 module.exports = {
-    components: 'src/core/**/*.js',
+    sections: [
+        {
+            name: 'Core',
+            components: 'src/core/**/*.js',
+        },
+        {
+            name: 'Modules',
+            components: 'src/modules/**/*.js',
+        },
+    ],
     ignore: ['**/index.js'],
     styles: {
         StyleGuide: {
