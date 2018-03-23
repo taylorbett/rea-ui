@@ -4,11 +4,27 @@
 
 1. Run `yarn` or `yarn install`
 
-## Run
+## App
+
+### Run dev server
 
 1. Run `yarn start`
 2. See local project at localhost:3000 (assuming port is free upon startup)
 
+### Build
+
+1. Run `yarn build`.
+2. See built app in `/build` directory
+
+## Documentation
+
+### Run dev server
+
+1. Run `yarn styleguide`
+
+### Build
+
+1. Run `yarn styleguide:build`
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
