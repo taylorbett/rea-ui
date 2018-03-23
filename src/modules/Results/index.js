@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { ADD_SAVED_PROPERTY } from '../../constants';
 
@@ -19,9 +20,9 @@ class Results extends React.Component {
     }
     
     renderListings() {
-        if (!this.props.results.length) {
+        if (!this.props.results || !this.props.results.length) {
             return(
-                <p>Oops! You're all out of listings!</p>
+                <p>Oops! You're all out of results!</p>
             );
         }
         return this.props.results.map((result, n) => {
@@ -56,5 +57,23 @@ function mapDispatchToProps(dispatch) {
         addSavedProperty: (propertyId) => dispatch({type: ADD_SAVED_PROPERTY, propertyId}),
     };
 }
+
+Results.defaultProps = {
+    results: [],
+};
+
+Results.propTypes = {
+    results: PropTypes.arrayOf(
+        PropTypes.shape({
+            price: PropTypes.string,
+            agency: PropTypes.shape({
+                brandingColors: PropTypes.objectOf(PropTypes.string),
+                logo: PropTypes.string,
+            }),
+            id: PropTypes.string,
+            mainImage: PropTypes.string,
+        })
+    ),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);

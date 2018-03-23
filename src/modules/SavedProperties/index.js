@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { REMOVE_SAVED_PROPERTY } from '../../constants';
 
@@ -56,5 +57,23 @@ function mapDispatchToProps(dispatch) {
         removeSavedProperty: (propertyId) => dispatch({type: REMOVE_SAVED_PROPERTY, propertyId}),
     };
 }
+
+SavedProperties.defaultProps = {
+    saved: [],
+};
+
+SavedProperties.propTypes = {
+    saved: PropTypes.arrayOf(
+        PropTypes.shape({
+            price: PropTypes.string,
+            agency: PropTypes.shape({
+                brandingColors: PropTypes.objectOf(PropTypes.string),
+                logo: PropTypes.string,
+            }),
+            id: PropTypes.string,
+            mainImage: PropTypes.string,
+        })
+    ),
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SavedProperties);
