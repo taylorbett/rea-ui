@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Listing.css';
 
+/**
+ * Listing component for showing a small snapshot of a property listing.
+ * 
+ * Can have interaction through CTAs or presumably become a link through to a property page.
+*/
 class Listing extends React.PureComponent {
     render() {
         if (!this.props.data) {
@@ -29,12 +34,12 @@ class Listing extends React.PureComponent {
 }
 
 Listing.defaultProps = {
-    data: null,
-    ctaText: null,
+    ctaText: '+',
     ctaFn: null,
 };
 
 Listing.propTypes = {
+    /** An object containing the required data for a listing */
     data: PropTypes.shape({
         price: PropTypes.string,
         agency: PropTypes.shape({
@@ -43,8 +48,10 @@ Listing.propTypes = {
         }),
         id: PropTypes.string,
         mainImage: PropTypes.string,
-    }),
+    }).isRequired,
+    /** Optional text label for the primary CTA. */
     ctaText: PropTypes.string,
+    /** Optional function hook adding an interaction to the listing*/
     ctaFn: PropTypes.func,
 };
 

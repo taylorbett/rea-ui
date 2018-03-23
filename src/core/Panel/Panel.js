@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Panel.css';
 
+/**
+ * Panel component for standard container format.
+*/
 class Panel extends React.PureComponent {
     render() {
         return (
@@ -19,7 +22,9 @@ Panel.defaultProps = {
 };
 
 Panel.propTypes = {
+    /** Title of the panel (Optional) */
     title: PropTypes.string,
+    /** Contents of the panel (Optional) */
     children: PropTypes.node,
 };
 
