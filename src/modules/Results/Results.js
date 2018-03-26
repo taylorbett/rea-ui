@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 
-import { ADD_SAVED_PROPERTY } from '../../constants';
+import * as SearchActions from '../../actions/searchActions';
 
 import Panel from '../../core/Panel';
 import Listing from '../../core/Listing';
@@ -21,7 +22,7 @@ class Results extends React.Component {
     
     addSavedProperty(propertyId) {
         console.log(`Adding property id: ${propertyId} to Saved Properties`);
-        this.props.addSavedProperty(propertyId);
+        this.props.dispatch(SearchActions.addSavedProperty(propertyId));
     }
     
     renderListings() {
@@ -59,7 +60,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return { 
-        addSavedProperty: (propertyId) => dispatch({type: ADD_SAVED_PROPERTY, propertyId}),
+        actions: bindActionCreators(SearchActions.addSavedProperty, dispatch),
+        dispatch
     };
 }
 
