@@ -21,7 +21,6 @@ class SavedProperties extends React.Component {
     }
     
     removeSavedProperty(propertyId) {
-        console.log(`Removing property id: ${propertyId} from Saved Properties`);
         this.props.dispatch(SearchActions.removeSavedProperty(propertyId));
     }
     

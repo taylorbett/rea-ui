@@ -21,7 +21,6 @@ class Results extends React.Component {
     }
     
     addSavedProperty(propertyId) {
-        console.log(`Adding property id: ${propertyId} to Saved Properties`);
         this.props.dispatch(SearchActions.addSavedProperty(propertyId));
     }
     
