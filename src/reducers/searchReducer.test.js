@@ -1,5 +1,5 @@
 import searchReducer from './searchReducer';
-import * as constants from '../constants';
+import { ADD_SAVED_PROPERTY, REMOVE_SAVED_PROPERTY } from '../constants';
 
 const initialState = {
     "results": [{
@@ -53,7 +53,7 @@ describe('searchReducer', () => {
 
     it('should handle ADD_SAVED_PROPERTY action', () => {
         const addPropertyAction = {
-            type: constants.ADD_SAVED_PROPERTY,
+            type: ADD_SAVED_PROPERTY,
             propertyId: "2"
         };
         expect(searchReducer(initialState, addPropertyAction)).toEqual({
@@ -104,7 +104,7 @@ describe('searchReducer', () => {
 
     it('should handle REMOVE_SAVED_PROPERTY action', () => {
         const removePropertyAction = {
-            type: constants.REMOVE_SAVED_PROPERTY,
+            type: REMOVE_SAVED_PROPERTY,
             propertyId: "4"
         };
         expect(searchReducer(initialState, removePropertyAction)).toEqual ({
