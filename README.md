@@ -16,6 +16,13 @@
 1. Run `yarn build`.
 2. See built app in `/build` directory
 
+## Tests
+
+### Run tests
+
+1. (Conditional) `brew install watchman` if you are using macOS Sierra (https://github.com/facebook/create-react-app/issues/1474)
+2. Run `yarn test`
+
 ## Documentation
 
 ### Run dev server
