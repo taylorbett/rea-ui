@@ -19,14 +19,19 @@ class Listing extends React.PureComponent {
             backgroundImage: `url(${this.props.data.mainImage})`,
         };
         return (
-            <div className='listing' style={listingStyle} key={this.props.data.id}>
+            <div className={`listing ${this.props.data.disabled ? '--disabled' : ''}`} style={listingStyle} key={this.props.data.id}>
                 <div className='listing__image' style={listingImage} />
                 <img className='listing__logo' alt='Agency logo' src={this.props.data.agency.logo} />
                 <p className='listing__price'>{this.props.data.price}</p>
-                {this.props.ctaText && this.props.ctaFn ?
-                    <button className="listing__primary-cta" onClick={() => this.props.ctaFn(this.props.data.id)}>
-                        {this.props.ctaText}
+                {this.props.primaryCtaText && this.props.primaryCtaFn ?
+                    <button className="listing__cta listing__primary-cta" onClick={() => this.props.primaryCtaFn(this.props.data.id)}>
+                        {this.props.primaryCtaText}
                     </button>
+                : null}
+                {this.props.negativeCtaText && this.props.negativeCtaFn ?
+                    <button className="listing__cta listing__negative-cta" onClick={() => this.props.negativeCtaFn(this.props.data.id)}>
+                        {this.props.negativeCtaText}
+                    </button> 
                 : null}
             </div>
         );
@@ -50,9 +55,14 @@ Listing.propTypes = {
         mainImage: PropTypes.string,
     }).isRequired,
     /** Optional text label for the primary CTA. */
-    ctaText: PropTypes.string,
+    primaryCtaText: PropTypes.string,
     /** Optional function hook adding an interaction to the listing*/
-    ctaFn: PropTypes.func,
+    primaryCtaFn: PropTypes.func,
+    /** Optional text label for the primary CTA. */
+    negativeCtaText: PropTypes.string,
+    /** Optional function hook adding an interaction to the listing*/
+    negativeCtaFn: PropTypes.func,
+    disabled: PropTypes.bool,
 };
 
 export default Listing;

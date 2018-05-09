@@ -30,7 +30,8 @@ const initialState = {
             "logo": "http://i1.au.reastatic.net/agencylogo/XCEWIN/12/20150807093203.gif"
         },
         "id": "3",
-        "mainImage": "http://i4.au.reastatic.net/640x480/98cee1b2a3a64329921fc38f7e2926a78d41fcc683fc48fb8a8ef2999b14c027/main.jpg"
+        "mainImage": "http://i4.au.reastatic.net/640x480/98cee1b2a3a64329921fc38f7e2926a78d41fcc683fc48fb8a8ef2999b14c027/main.jpg",
+        "disabled": true,
     }],
     "saved": [{
         "price": "$526,500",
@@ -57,6 +58,16 @@ const searchReducer = (state = initialState, action) => {
                 results: [...state.results, ...state.saved.filter(property => property.id === action.propertyId)],
                 saved: state.saved.filter(property => property.id !== action.propertyId),
             });
+        case constants.DISABLE_RESULT:
+            let newState = Object.assign({}, state);
+            console.log(newState);
+            newState.results.forEach(element => {
+                if (element.id === action.propertyId) {
+                    console.log('found', element);
+                    element.disabled = true;
+                }
+            });
+            return newState;
         default:
             return state;
     }

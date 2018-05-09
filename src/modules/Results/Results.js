@@ -18,10 +18,15 @@ class Results extends React.Component {
         super(props);
 
         this.addSavedProperty = this.addSavedProperty.bind(this);
+        this.disableResult = this.disableResult.bind(this);
     }
     
     addSavedProperty(propertyId) {
         this.props.dispatch(SearchActions.addSavedProperty(propertyId));
+    }
+
+    disableResult(propertyId) {
+        this.props.dispatch(SearchActions.disableResult(propertyId));
     }
     
     renderListings() {
@@ -30,13 +35,16 @@ class Results extends React.Component {
                 <p>Oops! You're all out of results!</p>
             );
         }
+        console.log('rendering Results with', this.props.results);
         return this.props.results.map((result, n) => {
             return(
                 <Listing
                     key={n}
                     data={result}
-                    ctaText={'Add'}
-                    ctaFn={this.addSavedProperty}
+                    primaryCtaText={'Add'}
+                    primaryCtaFn={this.addSavedProperty}
+                    negativeCtaText={'Disable'}
+                    negativeCtaFn={this.disableResult}
                 />
             );
         });
